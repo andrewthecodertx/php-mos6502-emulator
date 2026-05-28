@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace andrewthecoder\WDC65C02\Instructions;
 
-use andrewthecoder\WDC65C02\CPU;
 use andrewthecoder\Core\Opcode;
 use andrewthecoder\Core\StatusRegister;
+use andrewthecoder\WDC65C02\CPU;
 
 class Arithmetic
 {
     public function __construct(
-        private CPU $cpu
-    ) {
-    }
+        private CPU $cpu,
+    ) {}
 
     public function adc(Opcode $opcode): int
     {
@@ -28,7 +27,7 @@ class Arithmetic
         $this->cpu->status->set(StatusRegister::ZERO, ($result & 0xFF) === 0);
         $this->cpu->status->set(StatusRegister::NEGATIVE, ($result & 0x80) !== 0);
 
-        $overflow = ((($accumulator ^ $result) & ($value ^ $result)) & 0x80) !== 0;
+        $overflow = (($accumulator ^ $result) & ($value ^ $result) & 0x80) !== 0;
         $this->cpu->status->set(StatusRegister::OVERFLOW, $overflow);
         $this->cpu->setAccumulator($result & 0xFF);
 
@@ -47,7 +46,7 @@ class Arithmetic
         $this->cpu->status->set(StatusRegister::ZERO, ($result & 0xFF) === 0);
         $this->cpu->status->set(StatusRegister::NEGATIVE, ($result & 0x80) !== 0);
 
-        $overflow = ((($accumulator ^ $value) & ($accumulator ^ $result)) & 0x80) !== 0;
+        $overflow = (($accumulator ^ $value) & ($accumulator ^ $result) & 0x80) !== 0;
         $this->cpu->status->set(StatusRegister::OVERFLOW, $overflow);
 
         $this->cpu->setAccumulator($result & 0xFF);

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace andrewthecoder\Core;
 
@@ -21,32 +19,48 @@ namespace andrewthecoder\Core;
  */
 class StatusRegister
 {
-    /** Carry flag - bit 0 */
+    /**
+     * Carry flag - bit 0
+     */
     public const CARRY = 0;
 
-    /** Zero flag - bit 1 */
+    /**
+     * Zero flag - bit 1
+     */
     public const ZERO = 1;
 
-    /** Interrupt disable flag - bit 2 */
+    /**
+     * Interrupt disable flag - bit 2
+     */
     public const INTERRUPT_DISABLE = 2;
 
-    /** Decimal mode flag - bit 3 */
+    /**
+     * Decimal mode flag - bit 3
+     */
     public const DECIMAL_MODE = 3;
 
-    /** Break command flag - bit 4 */
+    /**
+     * Break command flag - bit 4
+     */
     public const BREAK_COMMAND = 4;
 
-    /** Unused flag - bit 5 (always 1) */
+    /**
+     * Unused flag - bit 5 (always 1)
+     */
     public const UNUSED = 5;
 
-    /** Overflow flag - bit 6 */
+    /**
+     * Overflow flag - bit 6
+     */
     public const OVERFLOW = 6;
 
-    /** Negative flag - bit 7 */
+    /**
+     * Negative flag - bit 7
+     */
     public const NEGATIVE = 7;
 
     /** @var int The 8-bit status register value (default: 0b00110100 = Unused and Break set) */
-    private int $flags = 0b00110100;
+    private int $flags = 0b110100;
 
     /**
      * Set or clear a specific flag in the status register.
