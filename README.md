@@ -347,25 +347,10 @@ class MyBus implements BusInterface {
 }
 ```
 
-## Contributing
-
-Contributions are welcome! The modular architecture makes it easy to:
-
-* Add new 6502-based systems (see `docs/CPU_CORE_ARCHITECTURE.md`)
-* Implement additional peripherals
-* Improve emulation accuracy
-* Add more test coverage
-* Enhance the hybrid JSON/PHP execution model
-
 ## License
 
-This project is licensed under the MIT License - see the
-[LICENSE](https://github.com/andrewthecodertx/6502-Emulator/blob/main/LICENSE)
-file for details.
+MIT, see [LICENSE](LICENSE).
 
-## Acknowledgments
+## Contributing
 
-* **6502.org** - For comprehensive 6502 documentation
-* **cc65 project** - For the assembler and toolchain
-* **Claude Code** - Documentation, README, code comments, and PHPDocs were
-generated and refined using [Claude Code](https://claude.ai/code) by Anthropic
+PRs welcome. Please open an issue first for major changes.
